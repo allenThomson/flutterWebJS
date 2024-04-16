@@ -38,7 +38,48 @@
   </script>
   <!-- This script adds the flutter initialization JS code -->
   <script src="flutter.js" defer></script>
+
+  <!-- <script src="assets/webengage.js"></script> -->
 </head>
+<script id="_webengage_script_tag" type="text/javascript">
+  var webengage;
+  ! function(w, e, b, n, g) {
+    function o(e, t) {
+      e[t[t.length - 1]] = function() {
+        r.__queue.push([t.join("."), arguments])
+      }
+    }
+    var i, s, r = w[b],
+      z = " ",
+      l = "init options track screen onReady".split(z),
+      a = "feedback survey notification".split(z),
+      c = "options render clear abort".split(z),
+      p = "Open Close Submit Complete View Click".split(z),
+      u = "identify login logout setAttribute".split(z);
+    if (!r || !r.__v) {
+      for (w[b] = r = {
+          __queue: [],
+          __v: "6.0",
+          user: {}
+        }, i = 0; i < l.length; i++) o(r, [l[i]]);
+      for (i = 0; i < a.length; i++) {
+        for (r[a[i]] = {}, s = 0; s < c.length; s++) o(r[a[i]], [a[i], c[s]]);
+        for (s = 0; s < p.length; s++) o(r[a[i]], [a[i], "on" + p[s]])
+      }
+      for (i = 0; i < u.length; i++) o(r.user, ["user", u[i]]);
+      setTimeout(function() {
+        var f = e.createElement("script"),
+          d = e.getElementById("_webengage_script_tag");
+        f.type = "text/javascript",
+          f.async = !0,
+          f.src = ("https:" == e.location.protocol ? "https://ssl.widgets.webengage.com" : "http://cdn.widgets.webengage.com") + "/js/webengage-min-v-6.0.js",
+          d.parentNode.insertBefore(f, d)
+      })
+    }
+  }(window, document, "webengage");
+
+  webengage.init('~1341056cd');
+</script>
 <body>
   <script>
     window.addEventListener('load', function(ev) {
@@ -55,5 +96,30 @@
       });
     });
   </script>
+
+<!-- <script src="main.dart.js" type="application/javascript"></script> -->
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyC3YS5poxS9IAjzpzT68jwSAo4s25_60Uk",
+    authDomain: "flutterjs-ef484.firebaseapp.com",
+    projectId: "flutterjs-ef484",
+    storageBucket: "flutterjs-ef484.appspot.com",
+    messagingSenderId: "688181249440",
+    appId: "1:688181249440:web:356cbd7ef712916660d0c5",
+    measurementId: "G-CZ2K4RVVS7"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
 </body>
 </html>
